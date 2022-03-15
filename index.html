@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Summative Assessment</title>
+        <link rel="icon" type="image/png" href="https://img.icons8.com/dotty/80/000000/circled-s.png"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+        <style>
+            body {
+                padding: 32px 64px;
+            }
+        </style>
+    <body>
+        <h1 class="d-inline-block ">Student List</h1>
+        <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">New</button>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">New Student</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <label for="ID" class="col-sm-2 col-form-label">ID</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="ID">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="Lastname" class="col-sm-2 col-form-label">Lastname</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="Lastname">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="Firstname" class="col-sm-2 col-form-label">Firstname</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="Firstname">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="Course">Course</label>
+                        <select class="col-sm-4 col-form-select" id="Course">
+                            <option selected>BS Computer Science</option>
+                            <option value="1">BS Data Science</option>
+                            <option value="2">BS Information Science</option>
+                            <option value="3">BS Information Technology</option>
+                        </select>
+                    </div>
+                    <hr/>
+
+                    <div class="row mb-3">
+                        <label for="S1" class="col-sm-2 col-form-label">Subject 1</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="S1">
+                        </div>
+                        <label for="G1" class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="G1">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="S2" class="col-sm-2 col-form-label">Subject 2</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="S2">
+                        </div>
+                        <label for="G2" class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="G2">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="S3" class="col-sm-2 col-form-label">Subject 3</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="S3">
+                        </div>
+                        <label for="G3" class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="G3">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="S4" class="col-sm-2 col-form-label">Subject 4</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="S4">
+                        </div>
+                        <label for="G4" class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="G4">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="S5" class="col-sm-2 col-form-label">Subject 5</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="S5">
+                        </div>
+                        <label for="G5" class="col-sm-2 col-form-label">Grade</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="G5">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="add_student">Save Changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr/>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--<tr>
+                    <th scope="row"><a href="#" class="text-decoration-none">202101078</a></th>
+                    <td>Lim</td>
+                    <td>Andy Kristy</td>
+                    <td>BS Information Technology</td>
+                    <td>88.72</td>
+                </tr>
+                <tr>
+                    <th scope="row"><a href="#" class="text-decoration-none">202100029</a></th>
+                    <td>Santos</td>
+                    <td>Bryan John</td>
+                    <td>BS Computer Science</td>
+                    <td>90.39</td>
+                </tr>
+                <tr>
+                    <th scope="row"><a href="#" class="text-decoration-none">202000871</a></th>
+                    <td>Villanueva</td>
+                    <td>Ivon</td>
+                    <td>BS Information Technology</td>
+                    <td>84.52</td>
+                </tr>-->
+            </tbody>
+        </table>
+
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script>
+            var students = [];
+
+            $(document).ready(function() {
+				if(localStorage.getItem('students')) {
+                    students = JSON.parse(localStorage.getItem('students'));
+                    loadStudentTable();
+                }
+
+				$("#add_student").click(function() {
+                    var isNotNull = false;
+                    var isNotNullRow1 = false;
+                    var isNotNullRow2 = false;
+                    var isNotNullRow3 = false;
+                    var isNotNullRow4 = false;
+                    var isNotNullRow5 = false;
+                    var average = 0;
+                    var averageCounter = 0;
+
+                    const id = $("#ID").val().trim();
+					const lastname = $("#Lastname").val().trim();
+					const firstname = $("#Firstname").val().trim();
+                    const course = $("#Course").val().trim();
+                    var s1 = $("#S1").val().trim();
+                    var g1 = $("#G1").val().trim();
+                    var s2 = $("#S2").val().trim();
+                    var g2 = $("#G2").val().trim();
+                    var s3 = $("#S3").val().trim();
+                    var g3 = $("#G3").val().trim();
+                    var s4 = $("#S4").val().trim();
+                    var g4 = $("#G4").val().trim();
+                    var s5 = $("#S5").val().trim();
+                    var g5 = $("#G5").val().trim();
+
+                    if ((parseInt(g1) < 60) || (parseInt(g1) > 100)) {
+                        g1 = "";
+                        alert("Sorry. Grades must be between 60 to 100 only.");
+                    }
+
+                    if ((parseInt(g2) < 60) || (parseInt(g2) > 100)) {
+                        g2 = "";
+                        alert("Sorry. Grades must be between 60 to 100 only.");
+                    }
+
+                    if ((parseInt(g3) < 60) || (parseInt(g3) > 100)) {
+                        g3 = "";
+                        alert("Sorry. Grades must be between 60 to 100 only.");
+                    }
+
+                    if ((parseInt(g4) < 60) || (parseInt(g4) > 100)) {
+                        g4 = "";
+                        alert("Sorry. Grades must be between 60 to 100 only.");
+                    }
+
+                    if ((parseInt(g5) < 60) || (parseInt(g5) > 100)) {
+                        g5 = "";
+                        alert("Sorry. Grades must be between 60 to 100 only.");
+                    }
+
+                    if ((s1 != "") && (g1 != "")) {
+                        isNotNullRow1 = true;
+                        averageCounter++;
+                    } 
+
+                    if ((s2 != "") && (g2 != "")) {
+                        isNotNullRow2 = true;
+                        averageCounter++;
+                    }
+
+                    if ((s3 != "") && (g3 != "")) {
+                        isNotNullRow3 = true;
+                        averageCounter++;
+                    }
+
+                    if ((s4 != "") && (g4 != "")) {
+                        isNotNullRow4 = true;
+                        averageCounter++;
+                    }
+
+                    if ((s5 != "") && (g5 != "")) {
+                        isNotNullRow5 = true;
+                        averageCounter++;
+                    }
+
+                    if ((isNotNullRow1 != "") || (isNotNullRow2 != "") || (isNotNullRow3 != "") || (isNotNullRow4 != "") || (isNotNullRow5 != "")) isNotNull = true;
+
+                    if (s1 == null) s1 = "";
+                    if ((g1 == null) || (g1 == "")) g1 = "0";
+                    if (s2 == null) s2 = "";
+                    if ((g2 == null) || (g2 == "")) g2 = "0";
+                    if (s3 == null) s3 = "";
+                    if ((g3 == null) || (g3 == "")) g3 = "0";
+                    if (s4 == null) s4 = "";
+                    if ((g4 == null) || (g4 == "")) g4 = "0";
+                    if (s5 == null) s5 = "";
+                    if ((g5 == null) || (g5 == "")) g5 = "0";
+
+                    if ((s1 == "") || (g1 == "") || (g1 == "0")) {
+                        s1 = "";
+                        g1 = "0";
+                    }
+
+                    if ((s2 == "") || (g2 == "") || (g2 == "0")) {
+                        s2 = "";
+                        g2 = "0";
+                    }
+
+                    if ((s3 == "") || (g3 == "") || (g3 == "0")) {
+                        s3 = "";
+                        g3 = "0";
+                    }
+
+                    if ((s4 == "") || (g4 == "") || (g4 == "0")) {
+                        s4 = "";
+                        g4 = "0";
+                    }
+
+                    if ((s5 == "") || (g5 == "") || (g5 == "0")) {
+                        s5 = "";
+                        g5 = "0";
+                    }
+
+                    if (id == "" || lastname == "" || firstname == "" || course == "" || isNotNull == false) {
+                        alert("You have missing fields.");
+                        return;
+                    }
+
+                    average = (parseInt(g1) + parseInt(g2) + parseInt(g3) + parseInt(g4) + parseInt(g5)) / averageCounter;
+                    average = average.toString();
+
+                    const student = {ID: id, Lastname: lastname, Firstname: firstname, Course: course, S1: s1, G1: g1, S2: s2, G2: g2, S3: s3, G3: g3, S4: s4, G4: g4, S5: s5, G5: g5, Average: average};
+
+                    students.push(student);
+                    addRow(student);
+
+                    localStorage.setItem('students', JSON.stringify(students));
+                });
+            });
+
+            function loadStudentTable() {
+                for(student of students) {
+                    addRow(student);
+                }
+            }
+
+            function addRow(student) {
+                let row = document.createElement("tr");
+                let cell = document.createElement("td");
+                cell.innerHTML = student.ID;
+                row.appendChild(cell);
+                cell = document.createElement("td");
+                cell.innerHTML = student.Lastname;
+                row.append(cell);
+				cell = document.createElement("td");
+                cell.innerHTML = student.Firstname;
+                row.append(cell);
+				cell = document.createElement("td");
+                cell.innerHTML = student.Course;
+                row.append(cell);
+
+                $("#students tbody").append(row);
+            }
+        </script>
+    </body>
+</html>
