@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Local Storage Example</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <label>Pet Type</label>
+                </div>
+
+                <div class="col-5">
+                    <select id="pet_type" class="form-control">
+                        <option></option>
+                        <option>Cat</option>
+                        <option>Dog</option>
+                        <option>Mouse</option>
+                    </select>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <label>Pet Name</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" id="pet_name" placeholder="Pet Name" />
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <button class="btn btn-primary w-100" id="add_pet">Add</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary w-100" id="clear_data">Clear Data</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container">
+            <table id="data" class="table table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            var data = [];
+
+            $(document).ready(function() {
+                if(localStorage.getItem('data')) {
+                    data = JSON.parse(localStorage.getItem('data'));
+                    loadTable();
+                }
+
+                $("#add_pet").click(function() {
+                    const p_type = $("#pet_type").val().trim();
+                    const p_name = $("#pet_name").val().trim();
+
+                    if (p_type == "" || p_name == "") {
+                        alert("pet name and pet type are required");
+                        return;
+                    }
+
+                    const pet = {type: p_type, name: p_name};
+
+                    data.push(pet);
+                    addRow(pet);
+
+                    localStorage.setItem('data', JSON.stringify(data));
+                });
+
+                $("#clear_data").click(function() {
+                    data = [];
+                    localStorage.setItem('data', JSON.stringify(data));
+                    $('#data tbody').empty();
+                });
+            });
+
+            function loadTable() {
+                for(pet of data) {
+                    addRow(pet);
+                }
+            }
+
+            function addRow(pet) {
+                let row = document.createElement("tr");
+                let cell = document.createElement("td");
+                cell.innerHTML = pet.type;
+                row.appendChild(cell);
+                cell = document.createElement("td");
+                cell.innerHTML = pet.name;
+                row.append(cell);
+
+                $("#data tbody").append(row);
+            }
+        </script>
+    </body>
+</html>
