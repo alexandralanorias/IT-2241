@@ -44,9 +44,9 @@
                         <label class="col-sm-2 col-form-label" for="Course">Course</label>
                         <select class="col-sm-4 col-form-select" id="Course">
                             <option selected>BS Computer Science</option>
-                            <option value="1">BS Data Science</option>
-                            <option value="2">BS Information Science</option>
-                            <option value="3">BS Information Technology</option>
+                            <option value="BS Data Science">BS Data Science</option>
+                            <option value="BS Information Science">BS Information Science</option>
+                            <option value="BS Information Technology">BS Information Technology</option>
                         </select>
                     </div>
                     <hr/>
@@ -111,7 +111,7 @@
         </div>
         <hr/>
 
-        <table class="table table-bordered">
+        <table id="students" class="table table-bordered">
             <thead>
                 <tr class="table-secondary">
                     <th scope="col">ID</th>
@@ -145,6 +145,32 @@
                 </tr>-->
             </tbody>
         </table>
+
+        <div class="modal" tabindex="-1" id="info">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Student Details</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 id="name_"></h1>
+                    <h6 id="id_"></h6>
+                    <h6 id="course_"></h6>
+                    <hr/>
+                    <h6 id="g1_"></h6>
+                    <h6 id="g2_"></h6>
+                    <h6 id="g3_"></h6>
+                    <h6 id="g4_"></h6>
+                    <h6 id="g5_"></h6>
+                    <h5 id="g6_"></h6>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
 
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -297,8 +323,16 @@
             function addRow(student) {
                 let row = document.createElement("tr");
                 let cell = document.createElement("td");
+                let a = document.createElement("a");
+                var link = document.createTextNode(student.ID);
+                a.appendChild(link);
+                a.href = "#info";
                 cell.innerHTML = student.ID;
-                row.appendChild(cell);
+                a.setAttribute("class", "text-decoration-none");
+                a.setAttribute("data-bs-toggle", "modal");
+                a.setAttribute("data-bs-target", "#info");
+                row.appendChild(a);
+                a.id = "modal";
                 cell = document.createElement("td");
                 cell.innerHTML = student.Lastname;
                 row.append(cell);
@@ -308,9 +342,22 @@
 				cell = document.createElement("td");
                 cell.innerHTML = student.Course;
                 row.append(cell);
+                cell = document.createElement("td");
+                cell.innerHTML = student.Average;
+                row.append(cell);
 
                 $("#students tbody").append(row);
+
+                $("#modal").click(function () {
+			    var name = $("#name").val();
+			    var str1 = "You Have Entered "
+				+ "Name: " + name
+				+ " and Marks: " + marks;
+			$("#modal_body").html(str);
+		});
             }
+
+            
         </script>
     </body>
 </html>
