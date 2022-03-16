@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- FSA for Event-Driven Programming -->
+<!-- Code by Alexandra Lanorias -->
+<!-- March 17, 2022 -->
 
 <html>
     <head>
@@ -154,15 +157,15 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h1 id="name_"></h1>
-                    <h6 id="id_"></h6>
-                    <h6 id="course_"></h6>
+                    <h4 id="name_"></h1>
+                    <p id="id_"></h6>
+                    <p id="course_"></p>
                     <hr/>
-                    <h6 id="g1_"></h6>
-                    <h6 id="g2_"></h6>
-                    <h6 id="g3_"></h6>
-                    <h6 id="g4_"></h6>
-                    <h6 id="g5_"></h6>
+                    <p id="g1_"></p>
+                    <p id="g2_"></p>
+                    <p id="g3_"></p>
+                    <p id="g4_"></p>
+                    <p id="g5_"></p>
                     <h5 id="g6_"></h6>
                 </div>
                 <div class="modal-footer">
@@ -349,12 +352,37 @@
                 $("#students tbody").append(row);
 
                 $("#modal").click(function () {
-			    var name = $("#name").val();
-			    var str1 = "You Have Entered "
-				+ "Name: " + name
-				+ " and Marks: " + marks;
-			$("#modal_body").html(str);
-		});
+			    var fname = student.Firstname;
+                var lname = student.Lastname;
+			    var str1 = fname + " " + lname;
+			    $("#name_").html(str1);
+                var id1 = student.ID;
+			    var str2 = id1;
+			    $("#id_").html(str2);
+                var course1 = student.Course;
+			    var str3 = course1;
+			    $("#course_").html(str3);
+                var su1 = student.S1;
+                var gr1 = student.G1;
+			    var str4 = su1 + ": " + gr1;
+			    $("#g1_").html(str4);
+                var su2 = student.S2;
+                var gr2 = student.G2;
+			    var str5 = su2 + ": " + gr2;
+			    $("#g2_").html(str5);
+                var su3 = student.S3;
+                var gr3 = student.G3;
+			    var str6 = su3 + ": " + gr3;
+			    $("#g3_").html(str6);
+                var su4 = student.S4;
+                var gr4 = student.G4;
+			    var str7 = su4 + ": " + gr4;
+			    $("#g4_").html(str7);
+                var su5 = student.S5;
+                var gr5 = student.G5;
+			    var str8 = su5 + ": " + gr5;
+			    $("#g5_").html(str8);
+		        });
             }
 
             
